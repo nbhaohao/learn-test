@@ -1,0 +1,13 @@
+{
+  "name": "02-mock",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Pudge Zhang@fcl:registry=https://flightcentre.jfrog.io/flightcentre/api/npm/drupal-team-npm/",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "jest": "^28.1.3"
+  }
+}
