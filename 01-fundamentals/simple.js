@@ -1,15 +1,34 @@
-const sum = (a, b) => a + b
-const subtract = (a, b) => a - b
+const {sum, subtract} = require('./math')
 
-// simple example
-let result = sum(3, 7)
-let expected = 10
-if (result !== expected) {
-  throw new Error(`${result} is not equal to ${expected}`)
+test('sub adds numbers', () => {
+  const result = sum(3, 7)
+  const expected = 10
+  expect(result).toBe(expected)
+})
+
+test('subtractTest', () => {
+  const result = subtract(7, 3)
+  const expected = 4
+  expect(result).toBe(expected)
+})
+
+function test(title, callback) {
+  try {
+    callback()
+    console.log(`✅ ${title}`)
+  } catch (e) {
+    console.error(`❌ ${title}`)
+    console.error(e)
+  }
 }
 
-result = subtract(7, 3)
-expected = 4
-if (result !== expected) {
-  throw new Error(`${result} is not equal to ${expected}`)
+
+function expect(actual) {
+  return {
+    toBe(expected) {
+      if (actual !== expected) {
+        throw new Error(`${actual} is not equal to ${expected}`)
+      }
+    }
+  }
 }
